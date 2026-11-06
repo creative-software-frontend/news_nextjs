@@ -31,8 +31,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} ${notoBengali.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="h-full">
-        {/* Next.js safe inline script for blocking theme load */}
+      <body className="h-full" suppressHydrationWarning>
         <Script
           id="theme-switcher"
           strategy="beforeInteractive"
