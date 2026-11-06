@@ -22,6 +22,8 @@ const notoBengali = Noto_Sans_Bengali({
 export const metadata = {
   title: "প্রথম সংবাদ",
   description: "সত্য ও ন্যায়ের প্রতিচ্ছবি",
+  title: "প্রথম সংবাদ",
+  description: "সত্য ও ন্যায়ের প্রতিচ্ছবি",
 };
 
 export default function RootLayout({ children }) {
@@ -30,7 +32,7 @@ export default function RootLayout({ children }) {
       lang="bn"
       className={`${geistSans.variable} ${geistMono.variable} ${notoBengali.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body>
         {children}
       </body>
     </html>
