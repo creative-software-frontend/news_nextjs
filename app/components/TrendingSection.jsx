@@ -95,7 +95,6 @@ function StoryCard({ title, href, image }) {
     >
       <div className="h-full w-[120px] shrink-0 overflow-hidden bg-gray-200 sm:w-[148px]">
         {image ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img src={image} alt={title} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
         ) : (
           <div className="h-full w-full bg-[linear-gradient(135deg,#d1d5db,#9ca3af)]" />
