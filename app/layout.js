@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Hind_Siliguri } from "next/font/google";
+import { Geist, Geist_Mono,  Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,10 +12,11 @@ const geistMono = Geist_Mono({
 });
 
 // Bengali font used by the Navbar
-const hindSiliguri = Hind_Siliguri({
+const notoBengali = Noto_Sans_Bengali({
   variable: "--font-bn",
   subsets: ["bengali", "latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="bn"
-      className={`${geistSans.variable} ${geistMono.variable} ${hindSiliguri.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${notoBengali.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}
