@@ -1,43 +1,72 @@
 @import "tailwindcss";
 
+/* make dark: classes follow the .dark class on <html> (Tailwind v4) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* neutral grays  */
+@theme {
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+  --color-gray-950: #0a0a0a;
+}
+
 html.dark {
   color-scheme: dark;
 }
 
+/* pure black page */
 html.dark body {
-  background-color: #111827;
-  color: #f9fafb;
+  background-color: #000000;
+  color: #f5f5f5;
 }
 
+/* backgrounds */
 html.dark .bg-white {
-  background-color: #111827 !important;
+  background-color: #000000 !important;
 }
 
 html.dark .bg-gray-50 {
-  background-color: #1f2937 !important;
+  background-color: #0a0a0a !important;
 }
 
 html.dark .bg-gray-100 {
-  background-color: #374151 !important;
+  background-color: #171717 !important;
 }
 
+html.dark .bg-gray-200 {
+  background-color: #262626 !important;
+}
+
+/* text */
 html.dark .text-gray-900 {
-  color: #f9fafb !important;
+  color: #f5f5f5 !important;
 }
 
 html.dark .text-gray-800 {
-  color: #e5e7eb !important;
+  color: #e5e5e5 !important;
 }
 
 html.dark .text-gray-700 {
-  color: #d1d5db !important;
+  color: #d4d4d4 !important;
 }
 
+html.dark .text-gray-600,
 html.dark .text-gray-500,
 html.dark .text-gray-400 {
-  color: #9ca3af !important;
+  color: #a3a3a3 !important;
 }
 
-html.dark .border-gray-200 {
-  border-color: #374151 !important;
+/* borders */
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+  border-color: #262626 !important;
 }
