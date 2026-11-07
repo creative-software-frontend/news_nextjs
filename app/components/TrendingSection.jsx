@@ -1,4 +1,9 @@
 import Link from "next/link";
+import cycloneImage from "../assets/cyclone.jpg";
+import resultImage from "../assets/result.jpg";
+import fairImage from "../assets/fair.jpg";
+import muslinImage from "../assets/muslin.jpg";
+import Image from "next/image";
 
 /* ---------- data (replace with your API / CMS data) ---------- */
 const TRENDING_TAGS = [
@@ -18,22 +23,22 @@ const TOP_STORIES = [
   {
     title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত",
     href: "#",
-    image: "", // e.g. "/images/cyclone.jpg"
+    image: cycloneImage, 
   },
   {
     title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে",
     href: "#",
-    image: "",
+    image: resultImage,
   },
   {
     title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায় অংশ নেবে ২০টির বেশি দেশ",
     href: "#",
-    image: "",
+    image: fairImage,
   },
   {
     title: "ঢাকাই মসলিনের বিশ্ববাজারে প্রবেশ নতুন সম্ভাবনা",
     href: "#",
-    image: "",
+    image: muslinImage,
   },
 ];
 
@@ -93,13 +98,19 @@ function StoryCard({ title, href, image }) {
       href={href}
       className="group flex h-[110px] overflow-hidden border border-gray-200 bg-white transition hover:shadow-md dark:border-gray-800 dark:bg-black dark:hover:shadow-none dark:hover:border-gray-700 sm:h-[122px]"
     >
-      <div className="h-full w-[120px] shrink-0 overflow-hidden bg-gray-200 dark:bg-[#171717] sm:w-[148px]">
-        {image ? (
-          <img src={image} alt={title} className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
-        ) : (
-          <div className="h-full w-full bg-[linear-gradient(135deg,#d1d5db,#9ca3af)] dark:bg-[linear-gradient(135deg,#262626,#171717)]" />
-        )}
-      </div>
+      <div className="relative h-full w-[120px] shrink-0 overflow-hidden bg-gray-200 dark:bg-[#171717] sm:w-[148px]">
+  {image ? (
+    <Image
+      src={image}
+      alt={title}
+      fill
+      sizes="148px"
+      className="object-cover transition duration-300 group-hover:scale-105"
+    />
+  ) : (
+    <div className="h-full w-full bg-[linear-gradient(135deg,#d1d5db,#9ca3af)] dark:bg-[linear-gradient(135deg,#262626,#171717)]" />
+  )}
+</div>
       <h3 className="line-clamp-3 flex-1 self-center px-4 text-[17px] font-medium leading-snug text-gray-900 group-hover:text-red-600 dark:text-gray-100 dark:group-hover:text-red-500 sm:text-[18px]">
         {title}
       </h3>
