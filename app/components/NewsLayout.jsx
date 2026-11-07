@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import cycloneImage from "../assets/cyclone.jpg";
+import muslinImage from "../assets/muslin.jpg";
 
 // 1. Column 1 Data
 const latestNewsData = [
@@ -14,8 +16,8 @@ const latestNewsData = [
 const subNewsGrid = [
     { id: 1, title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&auto=format&fit=crop&q=80" },
     { id: 2, title: "জাপান সফরে তারেক রহমান বিনিয়োগ ও বাণিজ্যে গুরুত্ব", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&auto=format&fit=crop&q=80" },
-    { id: 3, title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত", image: "" },
-    { id: 4, title: "ঢাকাই মস্লিনের বিশ্ববাজারে প্রবেশ নতুন সম্ভাবনা", image: "" },
+    { id: 3, title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত", image: cycloneImage },
+    { id: 4, title: "ঢাকাই মস্লিনের বিশ্ববাজারে প্রবেশ নতুন সম্ভাবনা", image: muslinImage },
     { id: 5, title: "শাহজালাল বিমানবন্দরে লাইভ ব্যাগেজ ট্রেকিং চালু", image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&auto=format&fit=crop&q=80" },
     { id: 6, title: "টোকিওতে ২৭ অক্টোবর তারেক রহমান ও তাকাইচি...", image: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=400&auto=format&fit=crop&q=80" },
     { id: 7, title: "রাজশাহীতে চাষীদের ১২ কোটি টাকা প্রণোদনা...", image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400&auto=format&fit=crop&q=80" },
@@ -28,7 +30,7 @@ const specialEventsData = [
     { id: 1, title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায় অংশ নেবে ২০টির বেশি দেশ", time: "৯ দিন আগে", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&auto=format&fit=crop&q=80" },
     { id: 2, title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে", time: "৯ দিন আগে", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200&auto=format&fit=crop&q=80" },
     { id: 3, title: "জাপান সফরে তারেক রহমান বিনিয়োগ ও বাণিজ্যে গুরুত্ব", time: "১০ দিন আগে", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&auto=format&fit=crop&q=80" },
-    { id: 4, title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত", time: "১০ দিন আগে", image: "https://images.unsplash.com/photo-1527489377706-5bf97e601852?w=200&auto=format&fit=crop&q=80" },
+    { id: 4, title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত", time: "১০ দিন আগে", image: muslinImage },
 ];
 
 const CalendarIcon = ({ className = "w-3.5 h-3.5" }) => (
