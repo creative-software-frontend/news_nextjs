@@ -3,7 +3,7 @@
 /* make dark: classes follow the .dark class on <html> (Tailwind v4) */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* neutral grays  */
+/* neutral grays (no blue tint) */
 @theme {
   --color-gray-50: #fafafa;
   --color-gray-100: #f5f5f5;
@@ -22,51 +22,7 @@ html.dark {
   color-scheme: dark;
 }
 
-/* pure black page */
 html.dark body {
   background-color: #000000;
   color: #f5f5f5;
-}
-
-/* backgrounds */
-html.dark .bg-white {
-  background-color: #000000 !important;
-}
-
-html.dark .bg-gray-50 {
-  background-color: #0a0a0a !important;
-}
-
-html.dark .bg-gray-100 {
-  background-color: #171717 !important;
-}
-
-html.dark .bg-gray-200 {
-  background-color: #262626 !important;
-}
-
-/* text */
-html.dark .text-gray-900 {
-  color: #f5f5f5 !important;
-}
-
-html.dark .text-gray-800 {
-  color: #e5e5e5 !important;
-}
-
-html.dark .text-gray-700 {
-  color: #d4d4d4 !important;
-}
-
-html.dark .text-gray-600,
-html.dark .text-gray-500,
-html.dark .text-gray-400 {
-  color: #a3a3a3 !important;
-}
-
-/* borders */
-html.dark .border-gray-100,
-html.dark .border-gray-200,
-html.dark .border-gray-300 {
-  border-color: #262626 !important;
 }
