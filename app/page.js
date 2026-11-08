@@ -4,6 +4,7 @@ import TrendingSection from "./components/TrendingSection";
 import NewsLayout from "./components/NewsLayout";
 import VideoGallery from "./components/VideoGallery";
 import PhotoGallery from "./components/PhotoGallery";
+import SaradeshSection from "./components/SaradeshSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
        <NewsLayout />
        <VideoGallery />
        <PhotoGallery />
+       <SaradeshSection />
     </main>
   );
 }
