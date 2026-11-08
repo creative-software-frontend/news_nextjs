@@ -146,8 +146,8 @@ export default function Navbar() {
       </nav>
 
       {/* breaking news ticker */}
-<div className="ps-ticker relative flex h-11 items-stretch overflow-hidden bg-white dark:bg-black">
-  <style>{`
+      <div className="ps-ticker relative flex h-11 items-stretch overflow-hidden bg-white dark:bg-black">
+        <style>{`
     @keyframes ps-marquee {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
@@ -160,25 +160,25 @@ export default function Navbar() {
     }
   `}</style>
 
-  <div className="relative z-10 flex shrink-0 items-center bg-[#e8504f] px-4 text-[17px] font-bold text-white sm:px-6 lg:ml-[min(4vw,52px)] lg:px-7">
-    সর্বশেষঃ
-  </div>
+        <div className="relative z-10 flex shrink-0 items-center bg-[#e8504f] px-4 text-[17px] font-bold text-white sm:px-6 lg:ml-[min(4vw,52px)] lg:px-7">
+          সর্বশেষঃ
+        </div>
 
-  <div className="relative flex-1 overflow-hidden">
-    <div className="ps-marquee-track flex h-full w-max items-center gap-16 whitespace-nowrap pl-6">
-      {[...BREAKING, ...BREAKING].map((t, i) => (
-        <Link
-          key={i}
-          href="#"
-          className="flex items-center gap-2 text-[17px] font-semibold text-gray-900 hover:text-red-600 dark:text-gray-100 dark:hover:text-red-500 sm:text-[18px]"
-        >
-          <GlobeIcon />
-          {t}
-        </Link>
-      ))}
-    </div>
-  </div>
-</div>
+        <div className="relative flex-1 overflow-hidden">
+          <div className="ps-marquee-track flex h-full w-max items-center gap-16 whitespace-nowrap pl-6">
+            {[...BREAKING, ...BREAKING].map((t, i) => (
+              <Link
+                key={i}
+                href="#"
+                className="flex items-center gap-2 text-[17px] font-semibold text-gray-900 hover:text-red-600 dark:text-gray-100 dark:hover:text-red-500 sm:text-[18px]"
+              >
+                <GlobeIcon />
+                {t}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
