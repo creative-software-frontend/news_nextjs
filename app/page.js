@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Heading from "./components/Heading";
 import TrendingSection from "./components/TrendingSection";
 import NewsLayout from "./components/NewsLayout";
+import VideoGallery from "./components/VideoGallery";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Navbar />
        <TrendingSection />
        <NewsLayout />
+       <VideoGallery />
     </main>
   );
 }
