@@ -6,6 +6,7 @@ import VideoGallery from "./components/VideoGallery";
 import PhotoGallery from "./components/PhotoGallery";
 import SaradeshSection from "./components/SaradeshSection";
 import Review from "./components/Review";
+import PodcastSection from "./components/PodcastSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
        <PhotoGallery />
        <SaradeshSection />
        <Review />
+       <PodcastSection />
     </main>
   );
 }
