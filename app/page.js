@@ -13,6 +13,7 @@ import NewsGrid from "./components/NewsGrid";
 import WeatherAndMoreComponent from "./components/WeatherAndMoreComponent";
 import JobAndPortalSection from "./components/Jobandportalsection";
 import FollowUsSection from "./components/FollowUsSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
       <WeatherAndMoreComponent />
       <JobAndPortalSection />
       <FollowUsSection />
+      <Footer />
     </main>
   );
 }
