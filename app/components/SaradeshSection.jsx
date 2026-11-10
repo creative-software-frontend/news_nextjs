@@ -1,21 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 import fairImage from "../assets/fair.jpg";
 import cycloneImage from "../assets/cyclone.jpg";
 import resultImage from "../assets/result.jpg";
 import muslin from "../assets/muslin.jpg";
-import airport from "../assets/saradesh/airport.jpg"
-import japan from "../assets/saradesh/japan.jpg"
-import sugarcane from "../assets/saradesh/sugarcane.jpg"
-import meeting from "../assets/saradesh/meeting.jpg"
-import conference from "../assets/saradesh/conference.jpg"
-import politician from "../assets/saradesh/politician.png"
-/* ---------- area data for the dropdowns (extend with all districts/upazilas) ---------- */
+import airport from "../assets/saradesh/airport.jpg";
+import japan from "../assets/saradesh/japan.jpg";
+import sugarcane from "../assets/saradesh/sugarcane.jpg";
+import meeting from "../assets/saradesh/meeting.jpg";
+import conference from "../assets/saradesh/conference.jpg";
+import politician from "../assets/saradesh/politician.png";
+
+/* ---------- area data ---------- */
 const AREAS = {
   ঢাকা: {
     ঢাকা: ["ধানমন্ডি", "মিরপুর", "উত্তরা", "সাভার", "কেরানীগঞ্জ"],
@@ -52,8 +52,7 @@ const AREAS = {
   },
 };
 
-/* ---------- news data (replace with your API / CMS data) ---------- */
-// image: a local import (import pic from "../assets/pic.jpg") or "" for the grey placeholder
+/* ---------- news data ---------- */
 const FEATURED = [
   {
     id: "f1",
@@ -81,11 +80,83 @@ const NEWS = [
   { id: 3, title: "শাহজালাল বিমানবন্দরে লাইভ ব্যাগেজ মনিটরিংয়ে সন্তুষ্ট যাত্রীরা", excerpt: "হযরত শাহজালাল আন্তর্জাতিক বিমানবন্দরে লাইভ ব্যাগেজ মনিটরিং ব্যবস্থা চালুর ফলে...", date: "২১ অক্টোবর, ২০২৬", href: "#", image: airport },
   { id: 4, title: "টোকিওতে ২৭ অক্টোবর তারেক রহমান ও তাকাইচির বৈঠক", excerpt: "টোকিওতে তারেক রহমান ও তাকাইচির বৈঠক বাংলাদেশের প্রধানমন্ত্রী তারেক রহমান...", date: "২১ অক্টোবর, ২০২৬", href: "#", image: meeting },
   { id: 5, title: "রাজশাহীতে আখচাষীদের ১২ কোটি টাকা প্রণোদনা দিলেন প্রধানমন্ত্রী", excerpt: "রাজশাহীতে আখচাষীদের ১২ কোটি টাকা প্রণোদনা রাজশাহী অঞ্চলের ৩৮ হাজার...", date: "২১ অক্টোবর, ২০২৬", href: "#", image: sugarcane },
-  { id: 6, title: "জাপানের সঙ্গে কর্মসংস্থান চুক্তি কর্মী নিয়োগ শুরু ১ এপ্রিল", excerpt: "জাপানে কর্মী পাঠাতে নতুন চুক্তি বাংলাদেশের জাপানের সঙ্গে কর্মসংস্থানসংক্রান্ত...", date: "১৯ অক্টোবর, ২০২৬", href: "#", image:  japan },
+  { id: 6, title: "জাপানের সঙ্গে কর্মসংস্থান চুক্তি কর্মী নিয়োগ শুরু ১ এপ্রিল", excerpt: "জাপানে কর্মী পাঠাতে নতুন চুক্তি বাংলাদেশের জাপানের সঙ্গে কর্মসংস্থানসংক্রান্ত...", date: "১৯ অক্টোবর, ২০২৬", href: "#", image: japan },
   { id: 7, title: "ঢাকায় আন্তর্জাতিক সম্মেলনে অংশ নিলেন বিদেশি প্রতিনিধিরা", excerpt: "রাজধানীতে আয়োজিত সম্মেলনে বিভিন্ন দেশের প্রতিনিধিরা অংশ নিয়েছেন...", date: "১৮ অক্টোবর, ২০২৬", href: "#", image: conference },
   { id: 8, title: "নতুন মন্ত্রিসভায় যুক্ত হলেন অভিজ্ঞ রাজনীতিবিদরা", excerpt: "মন্ত্রিসভা সম্প্রসারণে নতুন মুখ যুক্ত হয়েছে, শপথ নিয়েছেন ...", date: "১৭ অক্টোবর, ২০২৬", href: "#", image: politician },
   { id: 9, title: "বিমানবন্দরে যাত্রীসেবার মান বাড়াতে নতুন উদ্যোগ", excerpt: "বিমানবন্দরে যাত্রীদের ভোগান্তি কমাতে নতুন ব্যবস্থা নেওয়া হয়েছে...", date: "১৬ অক্টোবর, ২০২৬", href: "#", image: airport },
 ];
+
+
+/* ---------- latest and popular news ---------- */
+const LATEST = [
+  { id: 1, title: "ঢাকায় পর্যটন মেলা শুরু বৃহস্পতিবার", href: "#" },
+  { id: 2, title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল", href: "#" },
+  { id: 3, title: "ঘূর্ণিঝড়ের আশঙ্কায় সমুদ্রবন্দরে সতর্ক সংকেত", href: "#" },
+  { id: 4, title: "জাপানের সঙ্গে কর্মসংস্থান চুক্তি", href: "#" },
+  { id: 5, title: "ঢাকাই মসলিনের বিশ্ববাজারে প্রবেশ", href: "#" },
+];
+
+const POPULAR = [
+  { id: 1, title: "এইচএসসি পরীক্ষার ফলাফল জানবেন যেভাবে", href: "#" },
+  { id: 2, title: "জাপান সফরে তারেক রহমানের বৈঠক", href: "#" },
+  { id: 3, title: "আখচাষীদের জন্য ১২ কোটি টাকা প্রণোদনা", href: "#" },
+  { id: 4, title: "বিমানবন্দরে লাইভ ব্যাগেজ মনিটরিং", href: "#" },
+  { id: 5, title: "ঢাকাই মসলিনের নতুন সম্ভাবনা", href: "#" },
+];
+
+/* ---------- tabs column ---------- */
+function TabsColumn() {
+  const [activeTab, setActiveTab] = useState("latest");
+
+  const items = activeTab === "latest" ? LATEST : POPULAR;
+
+  return (
+    <aside className="flex h-fit min-w-0 flex-col border border-gray-200 bg-white dark:border-gray-800 dark:bg-black">
+      <div className="grid grid-cols-2 border-b border-gray-200 dark:border-gray-800">
+        <button
+          type="button"
+          onClick={() => setActiveTab("latest")}
+          className={`py-3 text-[14px] font-bold transition ${activeTab === "latest"
+            ? "border-b-2 border-[#e8504f] text-[#e8504f]"
+            : "text-gray-500 hover:text-[#e8504f] dark:text-gray-400"
+            }`}
+        >
+          সর্বশেষ
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setActiveTab("popular")}
+          className={`py-3 text-[14px] font-bold transition ${activeTab === "popular"
+            ? "border-b-2 border-[#e8504f] text-[#e8504f]"
+            : "text-gray-500 hover:text-[#e8504f] dark:text-gray-400"
+            }`}
+        >
+          সর্বাধিক পঠিত
+        </button>
+      </div>
+
+      <div className="flex flex-col px-4">
+        {items.map((item, index) => (
+          <Link
+            key={item.id}
+            href={item.href}
+            className="group flex gap-3 border-b border-gray-100 py-4 last:border-b-0 dark:border-gray-800"
+          >
+            <span className="text-[22px] font-extrabold text-gray-300 transition-colors group-hover:text-[#e8504f] dark:text-gray-700 dark:group-hover:text-[#e8504f]">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <h3 className="text-[13px] font-semibold leading-relaxed text-gray-800 transition-colors group-hover:text-[#e8504f] dark:text-gray-200 dark:group-hover:text-[#e8504f]">
+              {item.title}
+            </h3>
+          </Link>
+        ))}
+      </div>
+    </aside>
+  );
+}
+
 
 /* ---------- icons ---------- */
 const CalendarIcon = () => (
@@ -114,7 +185,7 @@ const ChevronDown = () => (
   </svg>
 );
 
-/* ---------- image (photo or placeholder) ---------- */
+/* ---------- image ---------- */
 function Thumb({ image, alt, sizes, className = "" }) {
   return (
     <div className={`relative overflow-hidden bg-gray-200 dark:bg-[#171717] ${className}`}>
@@ -136,7 +207,7 @@ function Thumb({ image, alt, sizes, className = "" }) {
 /* ---------- cards ---------- */
 function FeaturedCard({ title, excerpt, date, href, image }) {
   return (
-    <Link href={href} className="group flex flex-col border-b border-gray-200 p-3.5 last:border-b-0 dark:border-gray-800 sm:p-[13px]">
+    <a href={href} className="group flex flex-col border-b border-gray-200 p-3.5 last:border-b-0 dark:border-gray-800 sm:p-[13px]">
       <Thumb image={image} alt={title} sizes="(min-width: 1024px) 270px, 100vw" className="h-[190px] w-full sm:h-[200px]" />
 
       <h3 className="mt-4 text-[18px] font-bold leading-snug text-[#e8504f] transition-colors group-hover:text-[#c93f3e]">
@@ -154,13 +225,13 @@ function FeaturedCard({ title, excerpt, date, href, image }) {
           {date}
         </span>
       </div>
-    </Link>
+    </a>
   );
 }
 
 function NewsCard({ title, excerpt, date, href, image }) {
   return (
-    <Link href={href} className="group flex flex-col border-b border-r border-gray-200 p-3 dark:border-gray-800">
+    <a href={href} className="group flex flex-col border-b border-r border-gray-200 p-3 dark:border-gray-800">
       <Thumb image={image} alt={title} sizes="(min-width: 1024px) 180px, 50vw" className="aspect-[16/10] w-full" />
 
       <h3 className="mt-3 line-clamp-3 text-[14px] font-bold leading-snug text-gray-900 transition-colors group-hover:text-[#e8504f] dark:text-gray-100 dark:group-hover:text-red-500">
@@ -175,11 +246,11 @@ function NewsCard({ title, excerpt, date, href, image }) {
         <CalendarIcon />
         {date}
       </span>
-    </Link>
+    </a>
   );
 }
 
-/* ---------- area filter ---------- */
+/* ---------- area filter (exported for Review.jsx) ---------- */
 function Select({ label, value, onChange, options, placeholder, disabled }) {
   return (
     <div>
@@ -193,9 +264,7 @@ function Select({ label, value, onChange, options, placeholder, disabled }) {
         >
           <option value="">{placeholder}</option>
           {options.map((o) => (
-            <option key={o} value={o}>
-              {o}
-            </option>
+            <option key={o} value={o}>{o}</option>
           ))}
         </select>
         <ChevronDown />
@@ -204,7 +273,7 @@ function Select({ label, value, onChange, options, placeholder, disabled }) {
   );
 }
 
-function AreaFilter({ onSearch }) {
+export function AreaFilter({ onSearch }) {
   const [division, setDivision] = useState("");
   const [district, setDistrict] = useState("");
   const [upazila, setUpazila] = useState("");
@@ -217,6 +286,7 @@ function AreaFilter({ onSearch }) {
     setDistrict("");
     setUpazila("");
   };
+
   const changeDistrict = (v) => {
     setDistrict(v);
     setUpazila("");
@@ -249,47 +319,39 @@ function AreaFilter({ onSearch }) {
 
 /* ---------- main export ---------- */
 export default function SaradeshSection({ featured = FEATURED, news = NEWS }) {
-  const router = useRouter();
-
-  // change the path to your own area page
-  const handleSearch = ({ division, district, upazila }) => {
-    const q = new URLSearchParams({ division, ...(district && { district }), ...(upazila && { upazila }) });
-    router.push(`/area?${q.toString()}`);
-  };
-
   return (
     <section className="w-full bg-white font-[family-name:var(--font-bn)] dark:bg-black">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-6 px-3 py-6 sm:px-5 lg:grid-cols-[minmax(0,1fr)_300px]">
-        {/* left: heading + news */}
-        <div className="min-w-0">
-          <div className="rounded-md border-l-4 border-[#e8504f] bg-gray-50 px-5 py-3 dark:bg-[#171717]">
-            <h2 className="flex items-center gap-3 text-[22px] font-extrabold text-gray-900 dark:text-white">
-              <span className="h-10 w-[7px] shrink-0 bg-[#e8504f]" />
-              আমাদের সারাদেশ
-            </h2>
-          </div>
-
-          <div className="mt-5 overflow-hidden border border-gray-200 bg-white dark:border-gray-800 dark:bg-black">
-            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.35fr)]">
-              {/* featured column */}
-              <div className="flex flex-col border-b border-gray-200 dark:border-gray-800 lg:-mb-px lg:border-b-0 lg:border-r">
-                {featured.map((f) => (
-                  <FeaturedCard key={f.id} {...f} />
-                ))}
-              </div>
-
-              {/* card grid (the -mr/-mb hides the outer duplicate borders) */}
-              <div className="-mb-px -mr-px grid grid-cols-2 lg:grid-cols-3">
-                {news.map((n) => (
-                  <NewsCard key={n.id} {...n} />
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="mx-auto max-w-[1280px] px-3 py-6 sm:px-5">
+        <div className="rounded-md border-l-4 border-[#e8504f] bg-gray-50 px-5 py-3 dark:bg-[#171717]">
+          <h2 className="flex items-center gap-3 text-[22px] font-extrabold text-gray-900 dark:text-white">
+            <span className="h-10 w-[7px] shrink-0 bg-[#e8504f]" />
+            আমাদের সারাদেশ
+          </h2>
         </div>
 
-        {/* right: area filter */}
-        <AreaFilter onSearch={handleSearch} />
+        <div className="mt-5 overflow-hidden border border-gray-200 bg-white dark:border-gray-800 dark:bg-black">
+
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.35fr)_minmax(230px,0.9fr)]">
+            {/* Featured news */}
+            <div className="flex flex-col border-b border-gray-200 dark:border-gray-800 lg:-mb-px lg:border-b-0 lg:border-r">
+              {featured.map((f) => (
+                <FeaturedCard key={f.id} {...f} />
+              ))}
+            </div>
+
+            {/* News cards */}
+            <div className="grid grid-cols-2 border-b border-gray-200 dark:border-gray-800 lg:grid-cols-3 lg:border-b-0 lg:border-r">          {news.map((n) => (
+                <NewsCard key={n.id} {...n} />
+              ))}
+            </div>
+
+            {/* Latest and popular tabs */}
+            <div className="min-w-0 p-3 lg:p-0">
+              <TabsColumn />
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

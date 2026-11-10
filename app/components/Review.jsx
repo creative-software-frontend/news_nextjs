@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { AreaFilter } from "./SaradeshSection";
 
-/* ---------- data (replace with your API / CMS data) ---------- */
-// image: a local import (import pic from "../assets/pic.jpg") or "" for the grey placeholder
+/* ---------- data ---------- */
 const OPINIONS = [
   { id: 1, category: "ব্যবসা বাণিজ্য", title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায় অংশ নেবে ২০টির বেশি দেশ", quote: "কৃত্রিম বুদ্ধিমত্তা (এআই), প্রযুক্তিগত উদ্ভাবন ও টেকসই পর্যটন উন্নয়নকে গুরুত্ব...", href: "#", image: "" },
   { id: 2, category: "ফলাফল", title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে", quote: "এইচএসসি ও সমমান পরীক্ষার ফলাফল প্রকাশের তারিখ পুনর্নির্ধারণ করা হয়েছে।", href: "#", image: "" },
@@ -28,29 +29,8 @@ const POLL = {
   ],
 };
 
-const LATEST = [
-  { id: 1, category: "ব্যবসা বাণিজ্য", title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায় অংশ নেবে ২০টির বেশি দেশ", href: "#" },
-  { id: 2, category: "ফলাফল", title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে", href: "#" },
-  { id: 3, category: "জাতীয়", title: "জাপান সফরে তারেক রহমান বিনিয়োগ ও বাণিজ্যে গুরুত্ব", href: "#" },
-  { id: 4, category: "ঘূর্ণিঝড়", title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত", href: "#" },
-  { id: 5, category: "জাতীয়", title: "ঢাকাই মসলিনের বিশ্ববাজারে প্রবেশ নতুন সম্ভাবনা", href: "#" },
-  { id: 6, category: "জাতীয়", title: "শাহজালাল বিমানবন্দরে লাইভ ব্যাগেজ মনিটরিংয়ে সন্তুষ্ট যাত্রীরা", href: "#" },
-  { id: 7, category: "এশিয়া", title: "টোকিওতে ২৭ অক্টোবর তারেক রহমান ও তাকাইচির বৈঠক", href: "#" },
-  { id: 8, category: "জাতীয়", title: "রাজশাহীতে আখচাষীদের ১২ কোটি টাকা প্রণোদনা দিলেন প্রধানমন্ত্রী", href: "#" },
-];
-
-const POPULAR = [
-  { id: 1, category: "জাতীয়", title: "জাপানের সঙ্গে কর্মসংস্থান চুক্তি কর্মী নিয়োগ শুরু ১ এপ্রিল", href: "#" },
-  { id: 2, category: "রাজনীতি", title: "স্বৈরাচারের ফেরার পথ খুললে শহীদদের সঙ্গে গাদ্দারি হবে", href: "#" },
-  { id: 3, category: "ফলাফল", title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে", href: "#" },
-  { id: 4, category: "ঘূর্ণিঝড়", title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত", href: "#" },
-  { id: 5, category: "ব্যবসা বাণিজ্য", title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায় অংশ নেবে ২০টির বেশি দেশ", href: "#" },
-  { id: 6, category: "জাতীয়", title: "ঢাকাই মসলিনের বিশ্ববাজারে প্রবেশ নতুন সম্ভাবনা", href: "#" },
-];
-
 const MORE_OPINION_HREF = "#";
 const MORE_POLL_HREF = "#";
-const ALL_LATEST_HREF = "#";
 const PER_PAGE = 3;
 
 /* ---------- helpers ---------- */
@@ -79,7 +59,7 @@ const ChartIcon = () => (
   </svg>
 );
 
-/* ---------- thumbnail (photo or placeholder) ---------- */
+/* ---------- thumbnail ---------- */
 function Thumb({ image, alt, sizes, className = "" }) {
   return (
     <div className={`relative overflow-hidden bg-gray-200 dark:bg-[#171717] ${className}`}>
@@ -140,12 +120,13 @@ function OpinionCard({ category, title, quote, href, image }) {
 
 function OpinionColumn() {
   const pages = [];
-  for (let i = 0; i < OPINIONS.length; i += PER_PAGE) pages.push(OPINIONS.slice(i, i + PER_PAGE));
+  for (let i = 0; i < OPINIONS.length; i += PER_PAGE) {
+    pages.push(OPINIONS.slice(i, i + PER_PAGE));
+  }
 
   const [page, setPage] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // auto-advance every 6 seconds, paused while the mouse is over the column
   useEffect(() => {
     if (paused || pages.length < 2) return;
     const t = setTimeout(() => setPage((p) => (p + 1) % pages.length), 6000);
@@ -166,7 +147,6 @@ function OpinionColumn() {
         ))}
       </div>
 
-      {/* dots */}
       <div className="mt-5 flex items-center justify-center gap-2">
         {pages.map((_, i) => (
           <button
@@ -181,7 +161,6 @@ function OpinionColumn() {
         ))}
       </div>
 
-      {/* ad slot */}
       <div className="mt-5 flex min-h-[90px] flex-1 flex-col border border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-[#0a0a0a]">
         <span className="py-1.5 text-center text-[11px] font-semibold text-gray-500 dark:text-gray-400">বিজ্ঞাপন</span>
       </div>
@@ -210,7 +189,6 @@ function PollColumn() {
     <div className="flex min-w-0 flex-col border border-gray-200 border-t-4 border-t-[#43974f] bg-white p-5 dark:border-gray-800 dark:border-t-[#43974f] dark:bg-black">
       <ColumnHeader title="অনলাইন জরিপ" dot="bg-[#43974f]/70" href={MORE_POLL_HREF} />
 
-      {/* question image */}
       <div className="relative mt-5 h-[200px] overflow-hidden rounded-xl bg-gray-200 dark:bg-[#171717] sm:h-[220px]">
         {POLL.image ? (
           <Image src={POLL.image} alt="" fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
@@ -221,11 +199,11 @@ function PollColumn() {
         <p className="absolute inset-x-0 bottom-0 line-clamp-3 p-4 text-[15px] font-bold leading-snug text-white">{POLL.question}</p>
       </div>
 
-      {/* options */}
       <div className="mt-5 flex flex-col gap-3">
         {options.map((o) => {
           const active = selected === o.id;
           const pct = percent(o.votes);
+
           return (
             <label
               key={o.id}
@@ -248,14 +226,13 @@ function PollColumn() {
                 onChange={() => setSelected(o.id)}
                 className="sr-only"
               />
-              <span
-                className={`relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${
-                  active ? "border-[#43974f]" : "border-gray-300 dark:border-gray-600"
-                }`}
-              >
+
+              <span className={`relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${active ? "border-[#43974f]" : "border-gray-300 dark:border-gray-600"}`}>
                 {active && <span className="h-2.5 w-2.5 rounded-full bg-[#43974f]" />}
               </span>
+
               <span className="relative flex-1">{o.label}</span>
+
               {showResults && (
                 <span className="relative text-[13px] font-bold text-[#43974f]">
                   {bn(pct)}% <span className="font-normal text-gray-500 dark:text-gray-400">({bn(o.votes)})</span>
@@ -266,12 +243,9 @@ function PollColumn() {
         })}
       </div>
 
-      {showResults && (
-        <p className="mt-3 text-center text-[12px] text-gray-500 dark:text-gray-400">মোট ভোট: {bn(total)}</p>
-      )}
+      {showResults && <p className="mt-3 text-center text-[12px] text-gray-500 dark:text-gray-400">মোট ভোট: {bn(total)}</p>}
       {voted && <p className="mt-1 text-center text-[12px] font-semibold text-[#43974f]">আপনার ভোট দেওয়া হয়েছে, ধন্যবাদ!</p>}
 
-      {/* buttons */}
       <div className="mt-5 grid grid-cols-2 gap-3">
         <button
           type="button"
@@ -281,6 +255,7 @@ function PollColumn() {
         >
           <VoteIcon /> আপনার ভোট
         </button>
+
         <button
           type="button"
           onClick={() => setShowResults((s) => !s)}
@@ -293,68 +268,29 @@ function PollColumn() {
   );
 }
 
-/* ================= COLUMN 3: সর্বশেষ / জনপ্রিয় ================= */
-function TabsColumn() {
-  const [tab, setTab] = useState("latest");
-  const list = tab === "latest" ? LATEST : POPULAR;
-
-  const tabBtn = (key, label) => (
-    <button
-      type="button"
-      onClick={() => setTab(key)}
-      className={`flex-1 border-b-2 pb-3 text-[18px] font-bold transition-colors ${
-        tab === key
-          ? "border-gray-900 text-gray-900 dark:border-white dark:text-white"
-          : "border-gray-200 text-gray-500 hover:text-[#e8504f] dark:border-gray-800 dark:text-gray-400 dark:hover:text-red-500"
-      }`}
-    >
-      {label}
-    </button>
-  );
-
-  return (
-    <div className="flex min-w-0 flex-col border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-black">
-      <div className="flex">
-        {tabBtn("latest", "সর্বশেষ")}
-        {tabBtn("popular", "জনপ্রিয়")}
-      </div>
-
-      <ol className="mt-3 max-h-[480px] min-h-[360px] flex-1 overflow-y-auto pr-2 [scrollbar-width:thin]">
-        {list.map((n, i) => (
-          <li key={n.id} className="border-b border-gray-100 last:border-b-0 dark:border-gray-800">
-            <Link href={n.href} className="group flex items-center gap-4 py-4">
-              <span className="w-9 shrink-0 text-center text-[38px] font-extrabold leading-none text-gray-200 transition-colors group-hover:text-red-200 dark:text-[#262626] dark:group-hover:text-red-900">
-                {bn(i + 1)}
-              </span>
-              <h3 className="text-[15px] font-bold leading-snug text-gray-900 transition-colors group-hover:text-[#e8504f] dark:text-gray-100 dark:group-hover:text-red-500">
-                <span className="text-[#e8504f]">{n.category}</span>
-                <span className="mx-1.5 font-normal text-gray-400">/</span>
-                {n.title}
-              </h3>
-            </Link>
-          </li>
-        ))}
-      </ol>
-
-      <Link
-        href={ALL_LATEST_HREF}
-        className="mt-4 block rounded-md border-2 border-[#e8504f] bg-red-50 py-3 text-center text-[15px] font-bold text-[#e8504f] transition hover:bg-[#e8504f] hover:text-white dark:bg-[#1a0a0a] dark:hover:bg-[#e8504f]"
-      >
-        সর্বশেষ সব খবর
-      </Link>
-    </div>
-  );
-}
-
 /* ---------- main export ---------- */
 export default function Review() {
+  const router = useRouter();
+
+  const handleAreaSearch = ({ division, district, upazila }) => {
+    const q = new URLSearchParams({
+      division,
+      ...(district && { district }),
+      ...(upazila && { upazila }),
+    });
+
+    router.push(`/area?${q.toString()}`);
+  };
+
   return (
     <section className="w-full bg-white font-[family-name:var(--font-bn)] dark:bg-black">
       <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-6 px-3 py-6 sm:px-5 md:grid-cols-2 lg:grid-cols-3">
         <OpinionColumn />
         <PollColumn />
-        <div className="md:col-span-2 lg:col-span-1">
-          <TabsColumn />
+
+        {/* Third column: Area Filter replaces TabsColumn */}
+        <div className="min-w-0 md:col-span-2 lg:col-span-1">
+          <AreaFilter onSearch={handleAreaSearch} />
         </div>
       </div>
     </section>
