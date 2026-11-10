@@ -2,13 +2,16 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import magic from "../assets/podcast/magic.jpg";
+import quran from "../assets/podcast/quran.jpg";
+
 const PODCASTS = [
   {
     id: 1,
     type: "অডিও পডকাস্ট",
     title: "যাদুর ফেরিওয়ালা",
     href: "#",
-    image: "",
+    image: magic,
     audio: true,
   },
   {
@@ -16,7 +19,7 @@ const PODCASTS = [
     type: "ভিডিও পডকাস্ট",
     title: "কুরআন মাজিদ – যে কিতাবে আছে মানবজাতির অজানা সত্য",
     href: "#",
-    image: "/images/podcast-video.jpg",
+    image: quran,
     audio: false,
   },
 ];
