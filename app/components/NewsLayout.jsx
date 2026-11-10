@@ -6,10 +6,80 @@ import cycloneImage from "../assets/cyclone.jpg";
 import muslinImage from "../assets/muslin.jpg";
 
 // 1. Column 1 Data
+
 const latestNewsData = [
-    { id: 1, title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার...", date: "২৭ অক্টোবর, ২০২৬", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&auto=format&fit=crop&q=80" },
-    { id: 2, title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল...", date: "২৭ অক্টোবর, ২০২৬", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200&auto=format&fit=crop&q=80" },
-    { id: 3, title: "জাপান সফরে তারেক রহমান বিনিয়োগ ও...", date: "২৬ অক্টোবর, ২০২৬", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&auto=format&fit=crop&q=80" },
+    {
+        id: 1,
+        title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায় অংশ নেবে ২০টির বেশি দেশ",
+        date: "২৭ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 2,
+        title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে",
+        date: "২৭ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 3,
+        title: "জাপান সফরে তারেক রহমান বিনিয়োগ ও বাণিজ্যে গুরুত্ব",
+        date: "২৬ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 4,
+        title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত",
+        date: "২৬ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 5,
+        title: "ঢাকাই মসলিনের বিশ্ববাজারে প্রবেশ নতুন সম্ভাবনা",
+        date: "২৫ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 6,
+        title: "শাহজালাল বিমানবন্দরে লাইভ ব্যাগেজ ট্র্যাকিং চালু",
+        date: "২৫ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 7,
+        title: "রাজশাহীতে কৃষকদের ১২ কোটি টাকা প্রণোদনা ঘোষণা",
+        date: "২৪ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 8,
+        title: "জাপানের সঙ্গে কর্মসংস্থান চুক্তি, কর্মী নিয়োগ শুরু",
+        date: "২৪ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 9,
+        title: "দেশের অর্থনীতিতে নতুন বিনিয়োগের সম্ভাবনা তৈরি হচ্ছে",
+        date: "২৩ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 10,
+        title: "শিক্ষার্থীদের জন্য নতুন শিক্ষাবৃত্তি কর্মসূচি ঘোষণা",
+        date: "২৩ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 11,
+        title: "দেশজুড়ে শীতের আগাম প্রস্তুতি নিচ্ছে আবহাওয়া অধিদপ্তর",
+        date: "২২ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 12,
+        title: "তথ্যপ্রযুক্তি খাতে তরুণদের কর্মসংস্থানের নতুন সুযোগ",
+        date: "২২ অক্টোবর, ২০২৬",
+        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&auto=format&fit=crop&q=80"
+    }
 ];
 
 // 2. Column 2 Sub-News 3x3 Grid Data
@@ -27,10 +97,72 @@ const subNewsGrid = [
 
 // 3. Column 3 Special Events Data
 const specialEventsData = [
-    { id: 1, title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায় অংশ নেবে ২০টির বেশি দেশ", time: "৯ দিন আগে", image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&auto=format&fit=crop&q=80" },
-    { id: 2, title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে", time: "৯ দিন আগে", image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200&auto=format&fit=crop&q=80" },
-    { id: 3, title: "জাপান সফরে তারেক রহমান বিনিয়োগ ও বাণিজ্যে গুরুত্ব", time: "১০ দিন আগে", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&auto=format&fit=crop&q=80" },
-    { id: 4, title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত", time: "১০ দিন আগে", image: muslinImage },
+    {
+        id: 1,
+        title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায় অংশ নেবে ২০টির বেশি দেশ",
+        time: "৯ দিন আগে",
+        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 2,
+        title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে",
+        time: "৯ দিন আগে",
+        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 3,
+        title: "জাপান সফরে তারেক রহমান বিনিয়োগ ও বাণিজ্যে গুরুত্ব",
+        time: "১০ দিন আগে",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 4,
+        title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত",
+        time: "১০ দিন আগে",
+        image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 5,
+        title: "ঢাকাই মসলিনের ঐতিহ্য ফিরিয়ে আনতে নতুন উদ্যোগ",
+        time: "১১ দিন আগে",
+        image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 6,
+        title: "বাংলাদেশের পর্যটন শিল্পে বিদেশি বিনিয়োগের নতুন সম্ভাবনা",
+        time: "১১ দিন আগে",
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 7,
+        title: "তরুণ উদ্যোক্তাদের জন্য বিশেষ প্রশিক্ষণ কর্মসূচি চালু",
+        time: "১২ দিন আগে",
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 8,
+        title: "দেশের কৃষি খাতে আধুনিক প্রযুক্তির ব্যবহার বাড়ছে",
+        time: "১২ দিন আগে",
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 9,
+        title: "বিশ্ববাজারে বাংলাদেশের তৈরি পোশাকের চাহিদা বৃদ্ধি",
+        time: "১৩ দিন আগে",
+        image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 10,
+        title: "নতুন প্রযুক্তি উদ্ভাবনে তরুণদের অংশগ্রহণ বাড়ছে",
+        time: "১৩ দিন আগে",
+        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+        id: 11,
+        title: "দেশের নদী ও পরিবেশ সংরক্ষণে বিশেষ উদ্যোগ",
+        time: "১৪ দিন আগে",
+        image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=200&auto=format&fit=crop&q=80"
+    }
 ];
 
 const CalendarIcon = ({ className = "w-3.5 h-3.5" }) => (
