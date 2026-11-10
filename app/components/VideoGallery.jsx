@@ -4,14 +4,35 @@ import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-/* ---------- data (replace with your API / CMS data) ---------- */
-// thumbnail: a local import (import thumb from "../assets/video1.jpg") or "" for the placeholder
+const interview = new URL("../assets/video-gallery/interview.mp4", import.meta.url).pathname;
+const storm = new URL("../assets/video-gallery/storm.mp4", import.meta.url).pathname;
+const fair = new URL("../assets/video-gallery/fair.mp4", import.meta.url).pathname;
+
 const VIDEOS = [
-  { id: 1, title: "দৈনিক প্রথম সংবাদ প্রতিনিধি নিয়োগ বিজ্ঞপ্তি..!", date: "১০ আগস্ট, ২০২৬", href: "#", thumbnail: "" },
-  { id: 2, title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত", date: "২৭ অক্টোবর, ২০২৬", href: "#", thumbnail: "" },
-  { id: 3, title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায়", date: "২৭ অক্টোবর, ২০২৬", href: "#", thumbnail: "" },
-  { id: 4, title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল জানবেন যেভাবে", date: "২৬ অক্টোবর, ২০২৬", href: "#", thumbnail: "" },
-  { id: 5, title: "জাপান সফরে তারেক রহমান বিনিয়োগ ও বাণিজ্যে গুরুত্ব", date: "২৬ অক্টোবর, ২০২৬", href: "#", thumbnail: "" },
+  {
+    id: 1,
+    title: "দৈনিক প্রথম সংবাদ প্রতিনিধি নিয়োগ বিজ্ঞপ্তি..!",
+    date: "১০ আগস্ট, ২০২৬",
+    href: "#",
+    thumbnail: "",
+    video: interview,
+  },
+  {
+    id: 2,
+    title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত",
+    date: "২৭ অক্টোবর, ২০২৬",
+    href: "#",
+    thumbnail: "",
+    video: storm, 
+  },
+  {
+    id: 3,
+    title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার ঢাকায়",
+    date: "২৭ অক্টোবর, ২০২৬",
+    href: "#",
+    thumbnail: "",
+    video: fair,
+  },
 ];
 
 const ALL_VIDEOS_HREF = "#";
@@ -49,14 +70,32 @@ const CameraPlaceholder = () => (
 );
 
 /* ---------- video card ---------- */
-function VideoCard({ title, date, href, thumbnail }) {
+function VideoCard({ title, date, href, thumbnail, video }) {
+  const videoRef = useRef(null);
+
+  const videoSrc = video || "";
+
+  // hover -> play muted preview, leave -> pause and rewind
+  const play = () => videoRef.current?.play().catch(() => {});
+  const stop = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.pause();
+    v.currentTime = 0.5;
+  };
+
+  // no thumbnail image but a video file -> show the video's first frame instead of the placeholder
+  const frameAsThumb = !thumbnail && !!videoSrc;
+
   return (
     <Link
       href={href}
+      onMouseEnter={play}
+      onMouseLeave={stop}
       className="group relative block aspect-video min-w-[85%] shrink-0 snap-start overflow-hidden border border-gray-200 bg-gray-200 dark:border-gray-800 dark:bg-[#171717] sm:min-w-[calc(50%-10px)] xl:min-w-[calc(33.333%-14px)]"
     >
-      {/* thumbnail or placeholder */}
-      {thumbnail ? (
+      {/* thumbnail image */}
+      {thumbnail && (
         <Image
           src={thumbnail}
           alt={title}
@@ -64,10 +103,28 @@ function VideoCard({ title, date, href, thumbnail }) {
           sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 85vw"
           className="object-cover transition duration-300 group-hover:scale-105"
         />
-      ) : (
+      )}
+
+      {/* placeholder when there is neither thumbnail nor video */}
+      {!thumbnail && !videoSrc && (
         <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,#e5e7eb,#d1d5db)] dark:bg-[linear-gradient(135deg,#262626,#171717)]">
           <CameraPlaceholder />
         </div>
+      )}
+
+      {/* video file: hover preview (or first-frame thumbnail when there is no image) */}
+      {videoSrc && (
+        <video
+          ref={videoRef}
+          src={`${videoSrc}#t=0.5`}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+            frameAsThumb ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+          }`}
+        />
       )}
 
       {/* big play button */}

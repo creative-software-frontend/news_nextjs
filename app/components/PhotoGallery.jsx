@@ -1,12 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import khaledaImage from "../assets/photo-gallery/khaleda.jpg";
+import schoolImage from "../assets/photo-gallery/school.jpg";
+import partyImage from "../assets/photo-gallery/party-logo.jpg";
+import poriImage from "../assets/photo-gallery/pori-moni.jpg";
+
 /* ---------- data (replace with your API / CMS data) ---------- */
 const PHOTOS = [
-  { id: 1, title: "আপসহীন নেত্রী বেগম খালেদা জিয়া", date: "১২ সেপ্টেম্বর, ২০২৬", href: "#", image: "" },
-  { id: 2, title: "পাহাড়িয়া পাড়ায় আগামীর মাটির স্কুল", date: "১০ আগস্ট, ২০২৬", href: "#", image: "" },
-  { id: 3, title: "Bangladesh Political Party Logo", date: "২১ জুলাই, ২০২৬", href: "#", image: "" },
-  { id: 4, title: "চিত্র নায়িকা পরী মনি", date: "২ জুন, ২০২৬", href: "#", image: "" },
+  { id: 1, title: "আপসহীন নেত্রী বেগম খালেদা জিয়া", date: "১২ সেপ্টেম্বর, ২০২৬", href: "#", image: khaledaImage },
+  { id: 2, title: "পাহাড়িয়া পাড়ায় আগামীর মাটির স্কুল", date: "১০ আগস্ট, ২০২৬", href: "#", image: schoolImage },
+  { id: 3, title: "Bangladesh Political Party Logo", date: "২১ জুলাই, ২০২৬", href: "#", image: partyImage },
+  { id: 4, title: "চিত্র নায়িকা পরী মনি", date: "২ জুন, ২০২৬", href: "#", image: poriImage },
 ];
 
 const ALL_PHOTOS_HREF = "#";
