@@ -2,6 +2,19 @@
 
 import React, { useState } from "react";
 
+import Image from "next/image";
+
+import fairImage from "../assets/fair.jpg";
+import cycloneImage from "../assets/cyclone.jpg";
+import resultImage from "../assets/result.jpg";
+import muslin from "../assets/muslin.jpg";
+import airport from "../assets/saradesh/airport.jpg";
+import japan from "../assets/saradesh/japan.jpg";
+import sugarcane from "../assets/saradesh/sugarcane.jpg";
+import meeting from "../assets/saradesh/meeting.jpg";
+import conference from "../assets/saradesh/conference.jpg";
+import politician from "../assets/saradesh/politician.png";
+
 const StarIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-white">
     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -21,6 +34,78 @@ const bengaliMonths = [
 ];
 
 const weekdays = ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহ", "শুক্র", "শনি"];
+
+const SPECIAL_NEWS = [
+  {
+    id: 1,
+    title: "পর্যটন মেলা ২০২৬ শুরু বৃহস্পতিবার, অংশ নেবে ২০টির বেশি দেশ",
+    category: "বিশেষ প্রতিবেদন",
+    date: "২৭ অক্টোবর, ২০২৬",
+    image: fairImage,
+    href: "#",
+  },
+  {
+    id: 2,
+    title: "ঢাকাই মসলিনের বিশ্ববাজারে প্রবেশ, তৈরি হচ্ছে নতুন সম্ভাবনা",
+    category: "ঐতিহ্য",
+    date: "২৬ অক্টোবর, ২০২৬",
+    image: muslin,
+    href: "#",
+  },
+  {
+    id: 3,
+    title: "জাপানের সঙ্গে কর্মসংস্থান চুক্তি, নতুন সুযোগ বাংলাদেশিদের",
+    category: "অর্থনীতি",
+    date: "১৯ অক্টোবর, ২০২৬",
+    image: japan,
+    href: "#",
+  },
+];
+
+const NATIONAL_NEWS = [
+  {
+    id: 1,
+    title: "ঘূর্ণিঝড় অর্ণবের আশঙ্কায় চার সমুদ্রবন্দরে সতর্ক সংকেত",
+    date: "২৬ অক্টোবর, ২০২৬",
+    image: cycloneImage,
+    href: "#",
+  },
+  {
+    id: 2,
+    title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল, জানবেন যেভাবে",
+    date: "২৭ অক্টোবর, ২০২৬",
+    image: resultImage,
+    href: "#",
+  },
+  {
+    id: 3,
+    title: "শাহজালাল বিমানবন্দরে লাইভ ব্যাগেজ মনিটরিংয়ে সন্তুষ্ট যাত্রীরা",
+    date: "২১ অক্টোবর, ২০২৬",
+    image: airport,
+    href: "#",
+  },
+  {
+    id: 4,
+    title: "রাজশাহীতে আখচাষীদের ১২ কোটি টাকা প্রণোদনা",
+    date: "২১ অক্টোবর, ২০২৬",
+    image: sugarcane,
+    href: "#",
+  },
+  {
+    id: 5,
+    title: "ঢাকায় আন্তর্জাতিক সম্মেলনে অংশ নিলেন বিদেশি প্রতিনিধিরা",
+    date: "১৮ অক্টোবর, ২০২৬",
+    image: conference,
+    href: "#",
+  },
+  {
+    id: 6,
+    title: "নতুন মন্ত্রিসভায় যুক্ত হলেন অভিজ্ঞ রাজনীতিবিদরা",
+    date: "১৭ অক্টোবর, ২০২৬",
+    image: politician,
+    href: "#",
+  },
+];
 
 export default function SpecialSection() {
   const [currentDate, setCurrentDate] = useState(new Date(2026, 10, 8));
@@ -94,10 +179,36 @@ export default function SpecialSection() {
             </a>
           </div>
 
-          <div className="mt-4 flex min-h-[120px] items-center justify-center rounded border border-dashed border-gray-300 bg-gray-50 text-gray-500 dark:border-[#262626] dark:bg-black dark:text-gray-500">
-            <p className="text-sm">
-              স্পেশাল নিউজের কনটেন্ট এখানে প্রদর্শিত হবে
-            </p>
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {SPECIAL_NEWS.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                className="group overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-[#e8504f] dark:border-[#262626] dark:bg-[#0a0a0a]"
+              >
+                <div className="relative h-[180px] overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute left-3 top-3 rounded bg-[#e8504f] px-2.5 py-1 text-[11px] font-bold text-white">
+                    {item.category}
+                  </span>
+                </div>
+
+                <div className="p-3">
+                  <h3 className="line-clamp-2 text-[16px] font-bold leading-snug text-gray-900 transition group-hover:text-[#e8504f] dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-[11px] text-gray-500 dark:text-gray-400">
+                    {item.date}
+                  </p>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
 
@@ -124,11 +235,35 @@ export default function SpecialSection() {
               </a>
             </div>
 
-            <div className="flex min-h-[350px] items-center justify-center rounded border border-dashed border-gray-300 bg-gray-50 text-gray-500 dark:border-[#262626] dark:bg-black dark:text-gray-500">
-              <p className="text-sm">
-                জাতীয় নিউজের কনটেন্ট এখানে প্রদর্শিত হবে
-              </p>
-            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+  {NATIONAL_NEWS.map((item) => (
+    <a
+      key={item.id}
+      href={item.href}
+      className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-[#e8504f] dark:border-[#262626] dark:bg-[#0a0a0a]"
+    >
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition duration-500 group-hover:scale-105"
+        />
+      </div>
+
+      <div className="flex flex-1 flex-col p-3">
+        <h4 className="line-clamp-3 text-[14px] font-bold leading-relaxed text-gray-900 transition group-hover:text-[#e8504f] dark:text-gray-100">
+          {item.title}
+        </h4>
+
+        <p className="mt-auto pt-3 text-[11px] text-gray-500 dark:text-gray-400">
+          {item.date}
+        </p>
+      </div>
+    </a>
+  ))}
+</div>
           </div>
 
           {/* Archive Calendar */}
@@ -212,13 +347,12 @@ export default function SpecialSection() {
                   return (
                     <div
                       key={index}
-                      className={`border-t border-r border-gray-200 py-2.5 font-medium transition dark:border-[#262626] ${
-                        day === null
+                      className={`border-t border-r border-gray-200 py-2.5 font-medium transition dark:border-[#262626] ${day === null
                           ? "bg-transparent"
                           : isToday
                             ? "rounded-sm bg-[#e8504f] font-bold text-white shadow-inner"
                             : "cursor-pointer bg-white text-gray-700 hover:bg-gray-100 dark:bg-black dark:text-gray-300 dark:hover:bg-[#1a1a1a] dark:hover:text-white"
-                      }`}
+                        }`}
                     >
                       {day !== null ? day : ""}
                     </div>
