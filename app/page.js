@@ -14,6 +14,8 @@ import WeatherAndMoreComponent from "./components/WeatherAndMoreComponent";
 import JobAndPortalSection from "./components/Jobandportalsection";
 import FollowUsSection from "./components/FollowUsSection";
 import Footer from "./components/Footer";
+import BreakingNews from "./components/BreakingNews";
+import StockTicker from "./components/StockTicker";
 
 export default function Home() {
   return (
@@ -22,7 +24,9 @@ export default function Home() {
         <Heading />
         <Navbar />
       </div>
+      <BreakingNews />
       <TrendingSection />
+      <StockTicker />
       <NewsLayout />
       <VideoGallery />
       <PhotoGallery />
