@@ -8,6 +8,11 @@ import SaradeshSection from "./components/SaradeshSection";
 import Review from "./components/Review";
 import PodcastSection from "./components/PodcastSection";
 import SpecialSection from "./components/SpecialSection";
+import EconomyPoliticsPrayer from "./components/EconomyPoliticsPrayer";
+import NewsGrid from "./components/NewsGrid";
+import WeatherAndMoreComponent from "./components/WeatherAndMoreComponent";
+import JobAndPortalSection from "./components/Jobandportalsection";
+import FollowUsSection from "./components/FollowUsSection";
 
 export default function Home() {
   return (
@@ -16,14 +21,19 @@ export default function Home() {
         <Heading />
         <Navbar />
       </div>
-       <TrendingSection />
-       <NewsLayout />
-       <VideoGallery />
-       <PhotoGallery />
-       <SaradeshSection />
-       <Review />
-       <PodcastSection />
-       <SpecialSection />
+      <TrendingSection />
+      <NewsLayout />
+      <VideoGallery />
+      <PhotoGallery />
+      <SaradeshSection />
+      <Review />
+      <PodcastSection />
+      <SpecialSection />
+      <EconomyPoliticsPrayer />
+      <NewsGrid />
+      <WeatherAndMoreComponent />
+      <JobAndPortalSection />
+      <FollowUsSection />
     </main>
   );
 }
