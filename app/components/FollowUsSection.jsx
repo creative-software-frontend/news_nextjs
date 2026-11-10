@@ -89,7 +89,7 @@ function SocialCard({ item }) {
       className={`group relative overflow-hidden rounded-[22px] p-6 text-white shadow-md transition duration-300 ease-out hover:-translate-y-2 sm:p-9 ${item.gradient} ${item.hoverShadow}`}
     >
       {/* faded watermark */}
-      <div className="pointer-events-none absolute -bottom-10 -right-10 flex h-[190px] w-[190px] items-center justify-center rounded-full bg-white/10">
+      <div className="pointer-events-none absolute -bottom-10 -right-10 flex h-[170px] w-[170px] items-center justify-center rounded-full bg-white/10">
         <Big className="h-24 w-24 text-white/10" />
       </div>
 
@@ -128,15 +128,17 @@ export default function FollowUsSection({
 }) {
   return (
     <section className="w-full bg-white font-[family-name:var(--font-bn)] dark:bg-black">
+        <div className=" border-t border-dashed border-gray-300 p-4 dark:border-gray-700">
+  {/* your content */}
       <div className="mx-auto max-w-[1400px] px-3 py-10 sm:px-5 sm:py-14">
         <SectionHeading title={title} subtitle={subtitle} />
 
-        {/* extra top padding gives the lifted card room so it isn't clipped */}
-        <div className="mx-auto mt-12 grid max-w-[1250px] grid-cols-1 gap-6 pb-6 sm:gap-9 lg:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-[1100px] grid-cols-1 gap-6 pb-6 sm:gap-9 lg:grid-cols-2">
           {socials.map((s) => (
             <SocialCard key={s.key} item={s} />
           ))}
         </div>
+      </div>
       </div>
     </section>
   );
