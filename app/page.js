@@ -10,6 +10,7 @@ import PodcastSection from "./components/PodcastSection";
 import SpecialSection from "./components/SpecialSection";
 import EconomyPoliticsPrayer from "./components/EconomyPoliticsPrayer";
 import NewsGrid from "./components/NewsGrid";
+import WeatherAndMoreComponent from "./components/WeatherAndMoreComponent";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
        <SpecialSection />
        <EconomyPoliticsPrayer />
        <NewsGrid />
+       <WeatherAndMoreComponent />
     </main>
   );
 }
