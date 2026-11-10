@@ -8,6 +8,7 @@ import SaradeshSection from "./components/SaradeshSection";
 import Review from "./components/Review";
 import PodcastSection from "./components/PodcastSection";
 import SpecialSection from "./components/SpecialSection";
+import EconomyPoliticsPrayer from "./components/EconomyPoliticsPrayer";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
        <Review />
        <PodcastSection />
        <SpecialSection />
+       <EconomyPoliticsPrayer />
     </main>
   );
 }
