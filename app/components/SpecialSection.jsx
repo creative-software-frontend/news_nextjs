@@ -236,34 +236,34 @@ export default function SpecialSection() {
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-  {NATIONAL_NEWS.map((item) => (
-    <a
-      key={item.id}
-      href={item.href}
-      className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-[#e8504f] dark:border-[#262626] dark:bg-[#0a0a0a]"
-    >
-      <div className="relative aspect-[16/10] w-full overflow-hidden">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition duration-500 group-hover:scale-105"
-        />
-      </div>
+              {NATIONAL_NEWS.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-[#e8504f] dark:border-[#262626] dark:bg-[#0a0a0a]"
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  </div>
 
-      <div className="flex flex-1 flex-col p-3">
-        <h4 className="line-clamp-3 text-[14px] font-bold leading-relaxed text-gray-900 transition group-hover:text-[#e8504f] dark:text-gray-100">
-          {item.title}
-        </h4>
+                  <div className="flex flex-1 flex-col p-3">
+                    <h4 className="line-clamp-3 text-[14px] font-bold leading-relaxed text-gray-900 transition group-hover:text-[#e8504f] dark:text-gray-100">
+                      {item.title}
+                    </h4>
 
-        <p className="mt-auto pt-3 text-[11px] text-gray-500 dark:text-gray-400">
-          {item.date}
-        </p>
-      </div>
-    </a>
-  ))}
-</div>
+                    <p className="mt-auto pt-3 text-[11px] text-gray-500 dark:text-gray-400">
+                      {item.date}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Archive Calendar */}
@@ -348,10 +348,10 @@ export default function SpecialSection() {
                     <div
                       key={index}
                       className={`border-t border-r border-gray-200 py-2.5 font-medium transition dark:border-[#262626] ${day === null
-                          ? "bg-transparent"
-                          : isToday
-                            ? "rounded-sm bg-[#e8504f] font-bold text-white shadow-inner"
-                            : "cursor-pointer bg-white text-gray-700 hover:bg-gray-100 dark:bg-black dark:text-gray-300 dark:hover:bg-[#1a1a1a] dark:hover:text-white"
+                        ? "bg-transparent"
+                        : isToday
+                          ? "rounded-sm bg-[#e8504f] font-bold text-white shadow-inner"
+                          : "cursor-pointer bg-white text-gray-700 hover:bg-gray-100 dark:bg-black dark:text-gray-300 dark:hover:bg-[#1a1a1a] dark:hover:text-white"
                         }`}
                     >
                       {day !== null ? day : ""}
