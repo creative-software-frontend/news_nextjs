@@ -9,6 +9,7 @@ import Review from "./components/Review";
 import PodcastSection from "./components/PodcastSection";
 import SpecialSection from "./components/SpecialSection";
 import EconomyPoliticsPrayer from "./components/EconomyPoliticsPrayer";
+import NewsGrid from "./components/NewsGrid";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
        <PodcastSection />
        <SpecialSection />
        <EconomyPoliticsPrayer />
+       <NewsGrid />
     </main>
   );
 }
