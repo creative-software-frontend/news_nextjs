@@ -1,5 +1,5 @@
+
 import { Geist, Geist_Mono, Noto_Sans_Bengali } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,9 +32,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="h-full" suppressHydrationWarning>
-        <Script
-          id="theme-switcher"
-          strategy="beforeInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
