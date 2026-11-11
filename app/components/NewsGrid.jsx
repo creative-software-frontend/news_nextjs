@@ -76,7 +76,7 @@ const categories = [
             date: "৮ নভেম্বর, ২০২৬",
         },
     ],
-},
+    },
     {
         title: "বিনোদন",
         moreLink: "#entertainment-more",
