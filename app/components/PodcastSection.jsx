@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import magic from "../assets/podcast/magic.jpg";
 import quran from "../assets/podcast/quran.jpg";
+import bd from "../assets/podcast/bd.jpg";
 
 const PODCASTS = [
   {
@@ -21,6 +22,16 @@ const PODCASTS = [
     href: "#",
     image: quran,
     audio: false,
+  },
+   {
+    id: 3,
+    type: "অডিও পডকাস্ট",
+    title: "সময়ের গল্প: বদলে যাওয়া বাংলাদেশ",
+    description: "সমাজ, সংস্কৃতি ও পরিবর্তনের গল্প শুনুন।",
+    href: "#",
+    image: bd,
+    audio: true,
+    duration: "২২ মিনিট",
   },
 ];
 
