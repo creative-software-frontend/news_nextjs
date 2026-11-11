@@ -375,7 +375,7 @@ export default function Footer({
         </div>
 
         {/* Full-width tags section */}
-        <div className="mt-12 border-t border-gray-700 pt-6">
+        <div className="mt-8 pt-0">
           <TagList tags={tags} />
         </div>
 
