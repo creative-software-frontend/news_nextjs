@@ -87,14 +87,6 @@ const NEWS = [
 ];
 
 
-/* ---------- latest and popular news ---------- */
-const LATEST = [
-  { id: 1, title: "ঢাকায় পর্যটন মেলা শুরু বৃহস্পতিবার", href: "#" },
-  { id: 2, title: "৩১ অক্টোবর প্রকাশ এইচএসসি ফলাফল", href: "#" },
-  { id: 3, title: "ঘূর্ণিঝড়ের আশঙ্কায় সমুদ্রবন্দরে সতর্ক সংকেত", href: "#" },
-  { id: 4, title: "জাপানের সঙ্গে কর্মসংস্থান চুক্তি", href: "#" },
-  { id: 5, title: "ঢাকাই মসলিনের বিশ্ববাজারে প্রবেশ", href: "#" },
-];
 
 const POPULAR = [
   { id: 1, title: "এইচএসসি পরীক্ষার ফলাফল জানবেন যেভাবে", href: "#" },
@@ -105,49 +97,28 @@ const POPULAR = [
 ];
 
 /* ---------- tabs column ---------- */
+/* ---------- popular news column ---------- */
 function TabsColumn() {
-  const [activeTab, setActiveTab] = useState("latest");
-
-  const items = activeTab === "latest" ? LATEST : POPULAR;
-
   return (
     <aside className="flex h-fit min-w-0 flex-col border border-gray-200 bg-white dark:border-gray-800 dark:bg-black">
-      <div className="grid grid-cols-2 border-b border-gray-200 dark:border-gray-800">
-        <button
-          type="button"
-          onClick={() => setActiveTab("latest")}
-          className={`py-3 text-[14px] font-bold transition ${activeTab === "latest"
-            ? "border-b-2 border-[#e8504f] text-[#e8504f]"
-            : "text-gray-500 hover:text-[#e8504f] dark:text-gray-400"
-            }`}
-        >
-          সর্বশেষ
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setActiveTab("popular")}
-          className={`py-3 text-[14px] font-bold transition ${activeTab === "popular"
-            ? "border-b-2 border-[#e8504f] text-[#e8504f]"
-            : "text-gray-500 hover:text-[#e8504f] dark:text-gray-400"
-            }`}
-        >
+      <div className="border-b border-gray-200 px-4 py-3 dark:border-gray-800">
+        <h2 className="text-[14px] font-bold text-[#e8504f]">
           সর্বাধিক পঠিত
-        </button>
+        </h2>
       </div>
 
       <div className="flex flex-col px-4">
-        {items.map((item, index) => (
+        {POPULAR.map((item, index) => (
           <Link
             key={item.id}
             href={item.href}
             className="group flex gap-3 border-b border-gray-100 py-4 last:border-b-0 dark:border-gray-800"
           >
-            <span className="text-[22px] font-extrabold text-gray-300 transition-colors group-hover:text-[#e8504f] dark:text-gray-700 dark:group-hover:text-[#e8504f]">
+            <span className="text-[22px] font-extrabold text-gray-300 transition-colors group-hover:text-[#e8504f] dark:text-gray-700">
               {String(index + 1).padStart(2, "0")}
             </span>
 
-            <h3 className="text-[13px] font-semibold leading-relaxed text-gray-800 transition-colors group-hover:text-[#e8504f] dark:text-gray-200 dark:group-hover:text-[#e8504f]">
+            <h3 className="text-[13px] font-semibold leading-relaxed text-gray-800 transition-colors group-hover:text-[#e8504f] dark:text-gray-200">
               {item.title}
             </h3>
           </Link>
