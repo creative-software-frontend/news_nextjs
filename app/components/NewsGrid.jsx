@@ -9,7 +9,13 @@ import sportsMain from "../assets/sports/sports-main.jpg";
 import liton from "../assets/sports/liton.jpg";
 import sakib from "../assets/sports/sakib.jpg";
 import football from "../assets/sports/football.jpg";
-
+import shooting from "../assets/entertainment/shooting.jpg";
+import ott from "../assets/entertainment/ott.jpg";
+import drama from "../assets/entertainment/drama.jpg";
+import general from "../assets/health/general.jpg";
+import food from "../assets/health/food.jpg";
+import walk from "../assets/health/walk.jpg";
+import diabetes from "../assets/health/diabetes.jpg";
 
 const CalendarIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-3.5 w-3.5 text-[#ef6665]">
@@ -75,30 +81,30 @@ const categories = [
         title: "বিনোদন",
         moreLink: "#entertainment-more",
         mainNews: {
-            image: "/images/entertainment-main.jpg",
-            title: "চলচ্চিত্রে নতুন মোড়, শুটিংয়ে ব্যস্ত শিল্পীরা",
-            excerpt: "দেশের চলচ্চিত্র ইন্ডাস্ট্রিতে কাজের ব্যস্ততা বেড়েছে। নতুন সিনেমায় চুক্তিবদ্ধ হচ্ছেন জনপ্রিয় তারকারা...",
+            image: shooting,
+            title: "চলচ্চিত্রে নতুন মোড়, শুটিংয়ে ব্যস্ত শিল্পীরা",
+            excerpt: "দেশের চলচ্চিত্র ইন্ডাস্ট্রিতে কাজের ব্যস্ততা বেড়েছে। নতুন সিনেমায় চুক্তিবদ্ধ হচ্ছেন জনপ্রিয় তারকারা...",
             date: "১০ অক্টোবর, ২০২৬",
         },
         subNews: [
-            { image: "/images/entertainment-sub-1.jpg", title: "ওটিটিতে আসছে নতুন ওয়েব সিরিজ", date: "৯ অক্টোবর, ২০২৬" },
-            { image: "/images/entertainment-sub-2.jpg", title: "গানের রেকর্ডিংয়ে ব্যস্ত তাহসান", date: "৮ অক্টোবর, ২০২৬" },
-            { image: "/images/entertainment-sub-3.jpg", title: "দর্শকদের মন জয় করল নতুন নাটক", date: "৭ অক্টোবর, ২০২৬" },
+            { image: ott, title: "ওটিটিতে আসছে নতুন ওয়েব সিরিজ", date: "৯ অক্টোবর, ২০২৬" },
+            { image: shooting, title: "গানের রেকর্ডিংয়ে ব্যস্ত তাহসান", date: "৮ অক্টোবর, ২০২৬" },
+            { image: drama, title: "দর্শকদের মন জয় করল নতুন নাটক", date: "৭ অক্টোবর, ২০২৬" },
         ],
     },
     {
         title: "Health",
         moreLink: "#health-more",
         mainNews: {
-            image: "/images/health-main.jpg",
+            image: general,
             title: "শীতের শুরুতে ত্বকের যত্ন ও নানা পরামর্শ",
             excerpt: "ঋতু পরিবর্তনের এই সময়ে ত্বকের শুষ্কতা রোধে করণীয় বিষয়গুলো নিয়ে বিস্তারিত পরামর্শ দিয়েছেন বিশেষজ্ঞরা...",
             date: "১১ অক্টোবর, ২০২৬",
-        },
+        }, 
         subNews: [
-            { image: "/images/health-sub-1.jpg", title: "সুষম খাবার ও সুস্থ থাকার উপায়", date: "১০ অক্টোবর, ২০২৬" },
-            { image: "/images/health-sub-2.jpg", title: "নিয়মিত হাঁটার উপকারিতা", date: "৮ অক্টোবর, ২০২৬" },
-            { image: "/images/health-sub-3.jpg", title: "ডায়াবেটিস নিয়ন্ত্রণে রাখার সহজ কিছু টিপস", date: "৬ অক্টোবর, ২০২৬" },
+            { image: food, title: "সুষম খাবার ও সুস্থ থাকার উপায়", date: "১০ অক্টোবর, ২০২৬" },
+            { image: walk, title: "নিয়মিত হাঁটার উপকারিতা", date: "৮ অক্টোবর, ২০২৬" },
+            { image: diabetes, title: "ডায়াবেটিস নিয়ন্ত্রণে রাখার সহজ কিছু টিপস", date: "৬ অক্টোবর, ২০২৬" },
         ],
     },
 ];
