@@ -1,6 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
+import eco2 from "../assets/economy/economy2.jpg";
+import eco3 from "../assets/economy/economy3.jpg";
+import eco4 from "../assets/economy/economy4.jpg";
+import sportsMain from "../assets/sports/sports-main.jpg";
+import liton from "../assets/sports/liton.jpg";
+import sakib from "../assets/sports/sakib.jpg";
+import football from "../assets/sports/football.jpg";
+
 
 const CalendarIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-3.5 w-3.5 text-[#ef6665]">
@@ -14,32 +23,54 @@ const categories = [
         title: "National",
         moreLink: "#national-more",
         mainNews: {
-            image: "/images/national-main.jpg",
-            title: "আবুধাবিতে পাঁচ শয়নকক্ষের বিলাসবহুল ভিলা কিনলেন হাল্যান্ড",
-            excerpt: "আবুধাবিতে ভিলা কেনার ঘোষণা হাল্যান্ডের ম্যানচেস্টার সিটির তারকা স্ট্রাইকার আর্লিং হাল্যান্ড আবুধাবিতে...",
+            image: eco2,
+            title: "নিত্যপণ্যের বাজারে দামের ওঠানামা, ভোগান্তিতে সাধারণ মানুষ",
+            excerpt: "বাজার পরিস্থিতি ও পণ্যের মূল্য নিয়ে ক্রেতা-বিক্রেতাদের মধ্যে উদ্বেগ।",
             date: "১২ অক্টোবর, ২০২৬",
         },
         subNews: [
-            { image: "/images/national-sub-1.jpg", title: "লিটনের সেঞ্চুরিতে আফগানিস্তানকে ৪৯...", date: "১২ অক্টোবর, ২০২৬" },
-            { image: "/images/national-sub-2.jpg", title: "সাহেবজাদার ঝড়ো ইনিংসে পাকিস্তানের জয়...", date: "১০ অক্টোবর, ২০২৬" },
-            { image: "/images/national-sub-3.jpg", title: "বাংলাদেশ ৩৪৬ রানে অলআউট চাপে রাখল...", date: "১০ অক্টোবর, ২০২৬" },
+            {
+                image: eco2,
+                title: "নিত্যপণ্যের বাজারে দামের ওঠানামা, ভোগান্তিতে সাধারণ মানুষ",
+            },
+            {
+                image: eco3,
+                title: "ব্যাংকিং খাতে আধুনিক সেবা সম্প্রসারণে নতুন উদ্যোগ",
+                date: "৮ নভেম্বর, ২০২৬",
+            },
+            {
+                image: eco4,
+                title: "রপ্তানি বাণিজ্যে নতুন সম্ভাবনা দেখছেন উদ্যোক্তারা",
+            },
         ],
     },
-    {
-        title: "খেলা",
-        moreLink: "#sports-more",
-        mainNews: {
-            image: "/images/sports-main.jpg",
-            title: "জীবন মৃত্যুর সন্ধিক্ষণে সংগীত পরিচালক ইবরার টিপু",
-            excerpt: "আশঙ্কাজনক অবস্থায় ইবরার টিপু দেশের জনপ্রিয় সুরকার ও সংগীত পরিচালক ইবরার টিপুর শারীরিক অবস্হা নি...",
-            date: "১১ অক্টোবর, ২০২৬",
+   {
+    title: "খেলা",
+    moreLink: "#sports-more",
+    mainNews: {
+        image: sportsMain,
+        title: "দুর্দান্ত জয়ে সিরিজে এগিয়ে গেল বাংলাদেশ",
+        excerpt: "ব্যাটিং ও বোলিংয়ে দারুণ পারফরম্যান্স দেখিয়ে প্রতিপক্ষকে হারিয়ে সিরিজে গুরুত্বপূর্ণ জয় তুলে নিল বাংলাদেশ দল।",
+        date: "১১ নভেম্বর, ২০২৬",
+    },
+    subNews: [
+        {
+            image: liton,
+            title: "লিটন দাসের দুর্দান্ত ইনিংসে বাংলাদেশের বড় সংগ্রহ",
+            date: "১০ নভেম্বর, ২০২৬",
         },
-        subNews: [
-            { image: "/images/sports-sub-1.jpg", title: "মনীষার সঙ্গে বিচ্ছেদে ভেঙে পড়েছিলেন নানা পাটেকর", date: "১০ অক্টোবর, ২০২৬" },
-            { image: "/images/sports-sub-2.jpg", title: "কিংবদন্তি নায়ক জসিমের মৃত্যুবার্ষিকী", date: "৯ অক্টোবর, ২০২৬" },
-            { image: "/images/sports-sub-3.jpg", title: "মেসির অবসরে পূর্ণিমার কণ্ঠে বিষাদের সুর", date: "৭ অক্টোবর, ২০২৬" },
-        ],
-    },
+        {
+            image: sakib,
+            title: "আন্তর্জাতিক ক্রিকেটে নতুন মাইলফলকের সামনে সাকিব",
+            date: "৯ নভেম্বর, ২০২৬",
+        },
+        {
+            image: football,
+            title: "বিশ্বকাপ প্রস্তুতিতে নতুন পরিকল্পনা বাংলাদেশ ফুটবল দলের",
+            date: "৮ নভেম্বর, ২০২৬",
+        },
+    ],
+},
     {
         title: "বিনোদন",
         moreLink: "#entertainment-more",
@@ -94,9 +125,11 @@ function CategoryColumn({ data }) {
 
             {/* Main Featured News */}
             <article className="pb-4 mb-4 border-b border-gray-200 dark:border-[#262626]">
-                <img
+                <Image
                     src={data.mainNews.image}
                     alt={data.mainNews.title}
+                    width={600}
+                    height={350}
                     className="w-full h-[180px] object-cover mb-3"
                 />
                 <h3 className="text-[17px] font-bold leading-[1.4] text-black dark:text-white mb-2 hover:text-[#ef4444] cursor-pointer">
@@ -115,9 +148,11 @@ function CategoryColumn({ data }) {
             <div className="flex flex-col gap-4">
                 {data.subNews.map((item, index) => (
                     <article key={index} className="flex gap-3 items-center pb-3 border-b border-gray-100 last:border-b-0 last:pb-0 dark:border-[#1f1f1f]">
-                        <img
+                        <Image
                             src={item.image}
-                            alt=""
+                            alt={item.title}
+                            width={160}
+                            height={110}
                             className="h-[55px] w-[80px] shrink-0 object-cover"
                         />
                         <div className="min-w-0">

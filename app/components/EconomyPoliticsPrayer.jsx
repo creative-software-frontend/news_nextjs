@@ -3,9 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import eco1 from "../assets/economy/economy1.jpg";
-import eco2 from "../assets/economy/economy2.jpg";
-import eco3 from "../assets/economy/economy3.jpg";
-import eco4 from "../assets/economy/economy4.jpg";
 import abdul_hai from "../assets/politics/Abdul_hai.jpg";
 import help from "../assets/politics/help.jpg";
 import protest from "../assets/politics/protest.jpg";
@@ -41,27 +38,6 @@ const economyNews = [
         title: "দেশের অর্থনীতিতে নতুন সম্ভাবনা, বাড়ছে বিনিয়োগের সুযোগ",
         description: "দেশের বিভিন্ন খাতে বিনিয়োগ ও অর্থনৈতিক কার্যক্রমে নতুন গতি আসার প্রত্যাশা।",
         date: "১০ নভেম্বর, ২০২৬",
-    },
-    {
-        image: eco2,
-        category: "বাজার",
-        title: "নিত্যপণ্যের বাজারে দামের ওঠানামা, ভোগান্তিতে সাধারণ মানুষ",
-        description: "বাজার পরিস্থিতি ও পণ্যের মূল্য নিয়ে ক্রেতা-বিক্রেতাদের মধ্যে উদ্বেগ।",
-        date: "৯ নভেম্বর, ২০২৬",
-    },
-    {
-        image: eco3,
-        category: "ব্যাংকিং",
-        title: "ব্যাংকিং খাতে আধুনিক সেবা সম্প্রসারণে নতুন উদ্যোগ",
-        description: "ডিজিটাল লেনদেন ও আর্থিক সেবার পরিধি বাড়াতে বিভিন্ন উদ্যোগ।",
-        date: "৮ নভেম্বর, ২০২৬",
-    },
-    {
-        image: eco4,
-        category: "শিল্প ও বাণিজ্য",
-        title: "রপ্তানি বাণিজ্যে নতুন সম্ভাবনা দেখছেন উদ্যোক্তারা",
-        description: "আন্তর্জাতিক বাজারে প্রতিযোগিতা বাড়াতে শিল্প উদ্যোক্তাদের নতুন পরিকল্পনা।",
-        date: "৭ নভেম্বর, ২০২৬",
     },
 ];
 
